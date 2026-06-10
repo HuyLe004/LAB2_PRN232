@@ -7,6 +7,7 @@ using PRN232.LMS.Services.Interfaces;
 using FluentValidation;
 using PRN232.LMS.Services.Validations;
 using FluentValidation.AspNetCore;
+using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +29,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 builder.Services.AddScoped<ISemesterService, SemesterService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
-builder.Services.AddScoped<IUserService, UserService>();  // 🌟 THÊMSAU dòng này
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Add services to the container.
 builder.Services.AddControllers(options =>
@@ -39,16 +40,16 @@ builder.Services.AddControllers(options =>
     // Trả về lỗi HTTP 406 Not Acceptable nếu Client yêu cầu format không được hỗ trợ
     options.ReturnHttpNotAcceptable = true;
 })
-.AddXmlSerializerFormatters(); // 🌟 Content Negotiation
+.AddXmlSerializerFormatters(); // Content Negotiation
 
-// Add FluentValidation 🌟 YÊU CẦU 6
+// Add FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateStudentRequestValidator>();
 
-// 🌟 YÊU CẦU 7: Add API Versioning
-object value = builder.Services.AddApiVersioning(options =>
+// Add API Versioning
+builder.Services.AddApiVersioning(options =>
 {
-    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    options.DefaultApiVersion = new ApiVersion(1, 0);
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.ReportApiVersions = true;
 });

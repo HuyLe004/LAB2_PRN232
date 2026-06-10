@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Program.cs",
               "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Program.cs",
               "RelativeToolTip": "PRN232.LMS.API\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAArwDAAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-10T07:25:40.656Z",
               "EditorCaption": ""
@@ -55,7 +55,8 @@
               "RelativeToolTip": "PRN232.LMS.API\\Controllers\\UsersController.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAiwCcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:25:28.196Z"
+              "WhenOpened": "2026-06-10T07:25:28.196Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -67,7 +68,8 @@
               "RelativeToolTip": "PRN232.LMS.Services\\Interfaces\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:24:54.588Z"
+              "WhenOpened": "2026-06-10T07:24:54.588Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -79,7 +81,8 @@
               "RelativeToolTip": "PRN232.LMS.Services\\Implementations\\UserService.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAwwAwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:20:50.813Z"
+              "WhenOpened": "2026-06-10T07:20:50.813Z",
+              "EditorCaption": ""
             }
           ]
         }

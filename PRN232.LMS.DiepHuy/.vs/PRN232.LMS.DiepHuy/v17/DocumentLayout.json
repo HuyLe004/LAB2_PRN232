@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|solutionrelative:prn232.lms.services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|solutionrelative:prn232.lms.services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,60 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Program.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.API\\Program.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Program.cs",
-              "RelativeToolTip": "PRN232.LMS.API\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAArwDAAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:25:40.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "PRN232.LMS.API\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAiwCcAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:25:28.196Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.Services\\Interfaces\\IUserService.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "PRN232.LMS.Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:24:54.588Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.Services\\Implementations\\UserService.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "PRN232.LMS.Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAwwAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-10T07:20:50.813Z"
             }
           ]
         }
