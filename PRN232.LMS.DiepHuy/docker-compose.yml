@@ -30,6 +30,10 @@ services:
       - sqlserver
     environment:
       ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=PRN232_LMS;User Id=sa;Password=Password@123;Encrypt=false;TrustServerCertificate=true;"
+      Jwt__Secret: "YourSuperSecretKeyThatIsAtLeast32CharactersLongForHS256"
+      Jwt__Issuer: "PRN232LMS"
+      Jwt__Audience: "PRN232LMSUsers"
+      Jwt__ExpiresInMinutes: "60"
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:8080
     ports:

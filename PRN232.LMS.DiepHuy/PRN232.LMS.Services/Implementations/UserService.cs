@@ -7,9 +7,14 @@ using PRN232.LMS.Repositories.Models;
 using PRN232.LMS.Repositories.Models.Entities;
 using PRN232.LMS.Services.Interfaces;
 using PRN232.LMS.Services.Models;
+using BC = BCrypt.Net.BCrypt;
 
 namespace PRN232.LMS.Services.Implementations
 {
+    /// <summary>
+    /// User Service - Updated with BCrypt password hashing
+    /// YÊU CẦU 9: Password Security using BCrypt
+    /// </summary>
     public class UserService : IUserService
     {
         private readonly IUserRepository _repository;
@@ -54,18 +59,19 @@ namespace PRN232.LMS.Services.Implementations
         }
 
         /// <summary>
-        /// Create new user
+        /// Create new user with BCrypt password hashing
+        /// YÊU CẦU 9: Passwords must NOT be stored as plain text - Using BCrypt
         /// </summary>
         public async Task<UserDto> CreateUserAsync(CreateUserRequest request)
         {
-            // Hash password (simplified - in production use BCrypt or similar)
-            var hashedPassword = HashPassword(request.Password);
+            // 🔴 BCrypt password hashing - YÊU CẦU 9: Password Security
+            var hashedPassword = BC.HashPassword(request.Password);
 
             var user = new User
             {
                 Username = request.Username,
                 PasswordHash = hashedPassword,
-                Role = request.Role
+                Role = request.Role ?? "User"
             };
 
             await _repository.AddAsync(user);
@@ -75,7 +81,7 @@ namespace PRN232.LMS.Services.Implementations
         }
 
         /// <summary>
-        /// Update user
+        /// Update user with BCrypt password hashing
         /// </summary>
         public async Task<UserDto?> UpdateUserAsync(int id, UpdateUserRequest request)
         {
@@ -87,12 +93,12 @@ namespace PRN232.LMS.Services.Implementations
                 user.Username = request.Username;
 
             if (!string.IsNullOrEmpty(request.Password))
-                user.PasswordHash = HashPassword(request.Password);
+                user.PasswordHash = BC.HashPassword(request.Password); // 🔴 BCrypt
 
             if (!string.IsNullOrEmpty(request.Role))
                 user.Role = request.Role;
 
-            await _repository.UpdateAsync(user);  // ? THAY ??i: Update ? UpdateAsync
+            await _repository.UpdateAsync(user);
             await _repository.SaveChangesAsync();
 
             return MapToDto(user);
@@ -107,7 +113,7 @@ namespace PRN232.LMS.Services.Implementations
             if (user == null)
                 return false;
 
-            await _repository.DeleteAsync(id);  // ? THAY ??i: Delete(user) ? DeleteAsync(id)
+            await _repository.DeleteAsync(id);
             await _repository.SaveChangesAsync();
 
             return true;
@@ -124,22 +130,6 @@ namespace PRN232.LMS.Services.Implementations
                 Username = user.Username,
                 Role = user.Role
             };
-        }
-
-        /// <summary>
-        /// Simple password hashing (in production use BCrypt or ASP.NET Identity)
-        /// </summary>
-        private string HashPassword(string password)
-        {
-            // Simplified hash - in production use: 
-            // BCrypt.Net.BCrypt.HashPassword(password)
-            // or ASP.NET Core Identity PasswordHasher
-
-            using (var sha256 = System.Security.Cryptography.SHA256.Create())
-            {
-                var hashedBytes = sha256.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
         }
     }
 }

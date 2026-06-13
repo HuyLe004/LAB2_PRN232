@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.API.Models;
 using PRN232.LMS.Repositories.Models;
@@ -8,6 +9,7 @@ namespace PRN232.LMS.API.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize] // 🔴 YÊU CẦU 9: Protected APIs - Tất cả endpoints yêu cầu authentication
     public class UsersController : ControllerBase
     {
         private readonly IUserService _service;
@@ -20,9 +22,11 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Get paginated list of users
+        /// Get paginated list of users (Requires Admin role)
+        /// 🔴 YÊU CẦU 9: Role-based Authorization - Admin-only endpoint
         /// </summary>
         [HttpGet(Name = "GetUsers")]
+        [Authorize(Roles = "Admin")] // 🔴 YÊU CẦU 9: At least ONE admin-only endpoint
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> GetUsers(
             [FromQuery] int page = 1,
@@ -33,7 +37,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -79,7 +82,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -107,7 +109,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -125,9 +126,11 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Create a new user
+        /// Create a new user (Requires Admin role)
+        /// 🔴 YÊU CẦU 9: Admin-only endpoint
         /// </summary>
         [HttpPost(Name = "CreateUser")]
+        [Authorize(Roles = "Admin")] // 🔴 Admin-only
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> CreateUser(
             [FromBody] CreateUserRequest request,
@@ -135,7 +138,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -164,7 +166,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -185,9 +186,11 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Delete a user
+        /// Delete a user (Requires Admin role)
+        /// 🔴 YÊU CẦU 9: Admin-only endpoint
         /// </summary>
         [HttpDelete("{id:int}", Name = "DeleteUser")]
+        [Authorize(Roles = "Admin")] // 🔴 Admin-only
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> DeleteUser(
             [FromRoute] int id,
@@ -195,7 +198,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 

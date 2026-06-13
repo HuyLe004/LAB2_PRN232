@@ -1,13 +1,19 @@
+using Asp.Versioning;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using PRN232.LMS.API.Middleware;
 using PRN232.LMS.Repositories.Implementations;
 using PRN232.LMS.Repositories.Interfaces;
 using PRN232.LMS.Repositories.Models;
 using PRN232.LMS.Services.Implementations;
 using PRN232.LMS.Services.Interfaces;
-using FluentValidation;
 using PRN232.LMS.Services.Validations;
-using FluentValidation.AspNetCore;
-using Asp.Versioning;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,17 +36,15 @@ builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 builder.Services.AddScoped<ISemesterService, SemesterService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>(); // 🔴 YÊU CẦU 9: Register AuthService
 
 // Add services to the container.
 builder.Services.AddControllers(options =>
 {
-    // Yêu cầu API phải tôn trọng Accept header của Client gửi lên
     options.RespectBrowserAcceptHeader = true;
-
-    // Trả về lỗi HTTP 406 Not Acceptable nếu Client yêu cầu format không được hỗ trợ
     options.ReturnHttpNotAcceptable = true;
 })
-.AddXmlSerializerFormatters(); // Content Negotiation
+.AddXmlSerializerFormatters();
 
 // Add FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
@@ -54,6 +58,32 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
+// 🔴 YÊU CẦU 9: Configure JWT Authentication
+var jwtSecret = builder.Configuration["Jwt:Secret"] ?? throw new InvalidOperationException("JWT Secret not configured");
+var key = Encoding.ASCII.GetBytes(jwtSecret);
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    };
+});
+
+builder.Services.AddAuthorization();
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
@@ -65,23 +95,62 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add Swagger/OpenAPI
+// 🔴 YÊU CẦU 11: Add Swagger/OpenAPI with JWT Support
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    // Add JWT security definition for Swagger
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        Description = "Enter your JWT token in the format: Bearer {token}"
+    });
+
+    // Add security requirement
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+
+    // Add operation filter for authorization
+    options.OperationFilter<AuthorizeCheckOperationFilter>();
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "PRN232 LMS API v1");
+        options.DefaultModelsExpandDepth(2);
+    });
 }
 
-app.UseHttpsRedirection();
+// 🔴 YÊU CẦU 8: Use Custom Middleware
+app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
+// 🔴 YÊU CẦU 9: Add Authentication & Authorization Middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -103,9 +172,33 @@ using (var scope = app.Services.CreateScope())
             retries++;
             if (retries >= 10)
                 throw;
-            System.Threading.Thread.Sleep(3000); // Wait 3 seconds before retry
+            System.Threading.Thread.Sleep(3000);
         }
     }
 }
 
 app.Run();
+
+// 🔴 YÊU CẦU 11: Swagger Operation Filter for [Authorize] attribute
+public class AuthorizeCheckOperationFilter : Microsoft.OpenApi.Models.IOperationFilter
+{
+    public void Apply(OpenApiOperation operation, OperationFilterContext context)
+    {
+        var hasAuthorize = context.MethodInfo.DeclaringType?.GetCustomAttributes(typeof(Microsoft.AspNetCore.Authorization.AuthorizeAttribute), false).Length > 0
+            || context.MethodInfo.GetCustomAttributes(typeof(Microsoft.AspNetCore.Authorization.AuthorizeAttribute), false).Length > 0;
+
+        if (hasAuthorize)
+        {
+            operation.Security = new List<OpenApiSecurityRequirement>
+            {
+                new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
+                        Array.Empty<string>()
+                    }
+                }
+            };
+        }
+    }
+}
