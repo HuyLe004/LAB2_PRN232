@@ -7,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using PRN232.LMS.Repositories.Interfaces;
 using PRN232.LMS.Services.Interfaces;
 using PRN232.LMS.Services.Models;
-using SlackAPI;
 using BC = BCrypt.Net.BCrypt;
 
 namespace PRN232.LMS.Services.Implementations

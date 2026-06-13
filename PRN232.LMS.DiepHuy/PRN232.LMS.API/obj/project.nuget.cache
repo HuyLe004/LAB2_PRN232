@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "TbaEywSbm84=",
-  "success": false,
+  "dgSpecHash": "5w+HSbvwo8w=",
+  "success": true,
   "projectFilePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
@@ -54,7 +54,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identity.client\\4.61.3\\microsoft.identity.client.4.61.3.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.61.3\\microsoft.identity.client.extensions.msal.4.61.3.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
-    "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.6.2\\microsoft.identitymodel.jsonwebtokens.7.6.2.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.1\\microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.1\\microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\8.0.1\\microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
@@ -108,7 +108,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.globalization.extensions\\4.3.0\\system.globalization.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\ACER\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.6.2\\system.identitymodel.tokens.jwt.7.6.2.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
@@ -163,17 +163,5 @@
     "C:\\Users\\ACER\\.nuget\\packages\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: System.IdentityModel.Tokens.Jwt from 8.0.1 to 7.6.2. Reference the package directly from the project to select a different version. \r\n PRN232.LMS.API -> Microsoft.AspNetCore.Authentication.JwtBearer 9.0.6 -> Microsoft.IdentityModel.Protocols.OpenIdConnect 8.0.1 -> System.IdentityModel.Tokens.Jwt (>= 8.0.1) \r\n PRN232.LMS.API -> System.IdentityModel.Tokens.Jwt (>= 7.6.2)",
-      "projectPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
-      "filePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "logs": []
 }
