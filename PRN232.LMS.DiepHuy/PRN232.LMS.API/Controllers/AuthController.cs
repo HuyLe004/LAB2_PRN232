@@ -44,7 +44,7 @@ namespace PRN232.LMS.API.Controllers
                 if (result == null)
                     return Unauthorized(ApiResponse<string>.CreateFailure("Invalid username or password"));
 
-                return Ok(ApiResponse<Models.LoginResponse>.CreateSuccess(result, "Login successful"));
+                return Ok(ApiResponse<Services.Interfaces.LoginResponse>.CreateSuccess(result, "Login successful"));
             }
             catch (Exception ex)
             {

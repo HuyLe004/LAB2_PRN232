@@ -39,10 +39,7 @@ namespace PRN232.LMS.API.Models
             return new ApiResponse<T>(false, message, default, errors);
         }
 
-        internal static object? CreateSuccess(Services.Interfaces.LoginResponse result, string v)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
     /// <summary>

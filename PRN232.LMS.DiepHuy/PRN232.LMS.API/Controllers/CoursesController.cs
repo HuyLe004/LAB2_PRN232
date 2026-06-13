@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.API.Models;
 using PRN232.LMS.Repositories.Models;
@@ -8,6 +9,7 @@ namespace PRN232.LMS.API.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize] // 🔴 Bổ sung [Authorize] để bảo vệ toàn bộ API khóa học (Yêu cầu 9)
     public class CoursesController : ControllerBase
     {
         private readonly ICourseService _service;
@@ -16,7 +18,7 @@ namespace PRN232.LMS.API.Controllers
         private readonly ILogger<CoursesController> _logger;
 
         public CoursesController(
-            ICourseService service, 
+            ICourseService service,
             IEnrollmentService enrollmentService,
             IStudentService studentService,
             ILogger<CoursesController> logger)
@@ -42,7 +44,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -89,7 +90,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -120,30 +120,24 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
-                // Verify course exists
-                var course = await _service.GetCourseByIdAsync(courseId);
-                if (course == null)
+                // 1. Lấy chi tiết khóa học (Đã bao gồm sẵn Enrollments nhờ Entity Framework Include)
+                var courseDetails = await _service.GetCourseByIdWithDetailsAsync(courseId);
+                if (courseDetails == null)
                     return NotFound(ApiResponse<string>.CreateFailure($"Course with ID {courseId} not found"));
 
-                // Get enrollments for this course
-                var queryParams = new QueryParameters
-                {
-                    Page = page,
-                    PageSize = pageSize,
-                    Search = $"courseId:{courseId}",
-                };
+                // 2. Lấy danh sách ID của sinh viên từ Enrollments
+                var studentIds = courseDetails.Enrollments.Select(e => e.StudentId).Distinct().ToList();
+                var total = studentIds.Count;
 
-                var (enrollments, total) = await _enrollmentService.GetEnrollmentsAsync(queryParams);
+                // 3. Thực hiện phân trang thủ công trên list ID
+                var pagedStudentIds = studentIds.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-                // Extract student IDs and get student details
-                var studentIds = enrollments.Select(e => e.StudentId).ToList();
+                // 4. Kéo thông tin chi tiết của từng sinh viên
                 var students = new List<StudentDto>();
-
-                foreach (var studentId in studentIds)
+                foreach (var studentId in pagedStudentIds)
                 {
                     var student = await _studentService.GetStudentByIdAsync(studentId);
                     if (student != null)
@@ -158,7 +152,7 @@ namespace PRN232.LMS.API.Controllers
                         Page = page,
                         PageSize = pageSize,
                         TotalItems = total,
-                        TotalPages = (total + pageSize - 1) / pageSize
+                        TotalPages = total == 0 ? 0 : (total + pageSize - 1) / pageSize
                     }
                 };
 
@@ -172,9 +166,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Create a new course
+        /// Create a new course (Requires Admin role)
         /// </summary>
         [HttpPost(Name = "CreateCourse")]
+        [Authorize(Roles = "Admin")] // 🔴 Quyền Admin mới được tạo
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> CreateCourse(
             [FromBody] CreateCourseRequest request,
@@ -182,7 +177,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -200,9 +194,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Update an existing course
+        /// Update an existing course (Requires Admin role)
         /// </summary>
         [HttpPut("{id:int}", Name = "UpdateCourse")]
+        [Authorize(Roles = "Admin")]
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> UpdateCourse(
             [FromRoute] int id,
@@ -211,7 +206,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 
@@ -232,9 +226,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>
-        /// Delete a course
+        /// Delete a course (Requires Admin role)
         /// </summary>
         [HttpDelete("{id:int}", Name = "DeleteCourse")]
+        [Authorize(Roles = "Admin")]
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> DeleteCourse(
             [FromRoute] int id,
@@ -242,7 +237,6 @@ namespace PRN232.LMS.API.Controllers
         {
             try
             {
-                // Log request ID if provided (Header Binding)
                 if (!string.IsNullOrEmpty(requestId))
                     _logger.LogInformation($"Request ID: {requestId}");
 

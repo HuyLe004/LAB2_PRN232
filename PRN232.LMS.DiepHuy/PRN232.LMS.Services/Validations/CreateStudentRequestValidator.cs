@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using FluentValidation;
 using PRN232.LMS.Services.Models;
 
@@ -59,7 +61,7 @@ namespace PRN232.LMS.Services.Validations
 
         /// <summary>
         /// CUSTOM VALIDATION: Validate Student Code Format
-        /// Checks: SE/CE/GD/IT + 2-digit year (18-29) + 2-digit number (01-99)
+        /// Checks: SE/CE/GD/IT + 2-digit year (18-29) + 3-digit number (001-999)
         /// </summary>
         private bool IsValidStudentCodeFormat(string studentCode)
         {
@@ -71,7 +73,7 @@ namespace PRN232.LMS.Services.Validations
                 // Extract parts
                 var prefix = studentCode.Substring(0, 2);
                 var year = studentCode.Substring(2, 2);
-                var number = studentCode.Substring(4, 2);
+                var number = studentCode.Substring(4, 3); // Đã sửa thành lấy 3 ký tự cuối
 
                 // Validate prefix
                 var validPrefixes = new[] { "SE", "CE", "GD", "IT" };
@@ -82,8 +84,8 @@ namespace PRN232.LMS.Services.Validations
                 if (!int.TryParse(year, out var yearInt) || yearInt < 18 || yearInt > 29)
                     return false;
 
-                // Validate number (01-99)
-                if (!int.TryParse(number, out var numberInt) || numberInt < 1 || numberInt > 99)
+                // Validate number (001-999)
+                if (!int.TryParse(number, out var numberInt) || numberInt < 1 || numberInt > 999) // Đã sửa thành 999
                     return false;
 
                 return true;
