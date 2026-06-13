@@ -1,5 +1,4 @@
 using PRN232.LMS.Services.Models;
-using SlackAPI;
 
 namespace PRN232.LMS.Services.Interfaces
 {

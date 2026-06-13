@@ -44,7 +44,7 @@ namespace PRN232.LMS.API.Controllers
                 if (result == null)
                     return Unauthorized(ApiResponse<string>.CreateFailure("Invalid username or password"));
 
-                return Ok(ApiResponse<LoginResponse>.CreateSuccess(result, "Login successful"));
+                return Ok(ApiResponse<Models.LoginResponse>.CreateSuccess(result, "Login successful"));
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace PRN232.LMS.API.Controllers
                 if (result == null)
                     return Unauthorized(ApiResponse<string>.CreateFailure("Invalid refresh token"));
 
-                return Ok(ApiResponse<LoginResponse>.CreateSuccess(result, "Token refreshed successfully"));
+                return Ok(ApiResponse<Services.Interfaces.LoginResponse>.CreateSuccess(result, "Token refreshed successfully"));
             }
             catch (Exception ex)
             {

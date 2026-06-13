@@ -180,7 +180,7 @@ using (var scope = app.Services.CreateScope())
 app.Run();
 
 // 🔴 YÊU CẦU 11: Swagger Operation Filter for [Authorize] attribute
-public class AuthorizeCheckOperationFilter : Microsoft.OpenApi.Models.IOperationFilter
+public class AuthorizeCheckOperationFilter : IOperationFilter
 {
     public void Apply(OpenApiOperation operation, OperationFilterContext context)
     {

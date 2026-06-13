@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|solutionrelative:prn232.lms.services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.api\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.api\\middleware\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\middleware\\requestloggingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5757F54E-5279-4804-8451-0C26392D4AC1}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|solutionrelative:prn232.lms.services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\prn232\\lab_prn232\\lab2_prn232\\lab2_prn232\\prn232.lms.diephuy\\prn232.lms.api\\prn232.lms.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6CE8E34B-F3E7-4538-B5B3-368FC7B71F49}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\prn232.lms.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,76 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ExceptionHandlingMiddleware.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Middleware\\ExceptionHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.API\\Middleware\\ExceptionHandlingMiddleware.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Middleware\\ExceptionHandlingMiddleware.cs",
-              "RelativeToolTip": "PRN232.LMS.API\\Middleware\\ExceptionHandlingMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T07:38:02.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RequestLoggingMiddleware.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "RelativeToolTip": "PRN232.LMS.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T07:37:56.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.Services\\Interfaces\\IAuthService.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "PRN232.LMS.Services\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T07:28:39.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PRN232.LMS.API",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
-              "RelativeDocumentMoniker": "PRN232.LMS.API\\PRN232.LMS.API.csproj",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
-              "RelativeToolTip": "PRN232.LMS.API\\PRN232.LMS.API.csproj",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBYAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-13T07:27:35.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "PRN232.LMS.Services\\Implementations\\AuthService.cs",
-              "ToolTip": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232.LMS.DiepHuy\\PRN232.LMS.Services\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "PRN232.LMS.Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAswDwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-13T07:19:48.813Z",
-              "EditorCaption": ""
             }
           ]
         }
