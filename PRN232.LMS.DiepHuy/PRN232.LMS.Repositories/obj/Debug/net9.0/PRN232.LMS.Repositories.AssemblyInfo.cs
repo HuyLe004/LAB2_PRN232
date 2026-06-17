@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PRN232.LMS.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+380f8b164ec45113d0a578d2237570404b04e861")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e542613f4f9b3ad65b3b74e346f6acbb11cad6e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("PRN232.LMS.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PRN232.LMS.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
