@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PRN232\\Lab_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj": {}
+    "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj": {}
   },
   "projects": {
-    "D:\\PRN232\\Lab_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj": {
+    "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN232\\Lab_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+        "projectUniqueName": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
         "projectName": "CourseService",
-        "projectPath": "D:\\PRN232\\Lab_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+        "projectPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN232\\Lab_PRN232\\PRN232_Lab3_Microservices\\CourseService\\obj\\",
+        "outputPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -63,6 +63,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0, )"
             }
           },
           "imports": [
