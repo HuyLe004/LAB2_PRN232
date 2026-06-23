@@ -1,23 +1,44 @@
 [
   {
-    "ContainingType": "CourseService.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "CourseService.Controllers.CoursesController",
+    "Method": "GetCourses",
+    "RelativePath": "api/Courses",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseService.Controllers.CoursesController",
+    "Method": "CreateCourse",
+    "RelativePath": "api/Courses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CourseService.WeatherForecast, CourseService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "course",
+        "Type": "CourseService.Entities.Course",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CourseService.Controllers.CoursesController",
+    "Method": "EnrollStudent",
+    "RelativePath": "api/Courses/enroll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "enrollment",
+        "Type": "CourseService.Entities.Enrollment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
