@@ -316,6 +316,13 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseSer
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\CourseService.pdb
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Azure.Core.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Azure.Identity.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Google.Protobuf.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.AspNetCore.Server.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.AspNetCore.Server.ClientFactory.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.Core.Api.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.Net.Client.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.Net.ClientFactory.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Grpc.Net.Common.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Humanizer.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -457,10 +464,10 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseSer
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\staticwebassets.development.json
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\CourseSe.9A85A0F5.Up2Date
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\CourseService.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\refint\CourseService.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\CourseService.pdb
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\CourseService.genruntimeconfig.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\ref\CourseService.dll
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\CourseService\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -1,13 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using StudentService.Data;
+using StudentService.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<StudentDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllers();
+
+// gRPC
+builder.Services.AddGrpc();
+
+builder.Services.AddTransient<StudentGrpcService>();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
@@ -28,4 +35,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// gRPC endpoint
+app.MapGrpcService<StudentGrpcService>();
+
 app.Run();
+

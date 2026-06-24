@@ -1,0 +1,46 @@
+{
+  "Routes": {
+    "auth": {
+      "ClusterId": "identity",
+      "Match": {
+        "Path": "/api/auth/{**catchall}"
+      }
+    },
+    "students": {
+      "ClusterId": "students",
+      "Match": {
+        "Path": "/api/students/{**catchall}"
+      }
+    },
+    "courses": {
+      "ClusterId": "courses",
+      "Match": {
+        "Path": "/api/courses/{**catchall}"
+      }
+    }
+  },
+  "Clusters": {
+    "identity": {
+      "Destinations": {
+        "identity1": {
+          "Address": "https://localhost:5001"
+        }
+      }
+    },
+    "students": {
+      "Destinations": {
+        "students1": {
+          "Address": "https://localhost:5002"
+        }
+      }
+    },
+    "courses": {
+      "Destinations": {
+        "courses1": {
+          "Address": "https://localhost:5003"
+        }
+      }
+    }
+  }
+}
+

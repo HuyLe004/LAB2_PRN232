@@ -14,6 +14,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+
+    <!-- gRPC -->
+    <PackageReference Include="Grpc.Net.Client" Version="2.70.1" />
+    <PackageReference Include="Google.Protobuf" Version="4.0.0-rc2" />
+    <PackageReference Include="Grpc.Tools" Version="2.70.1" PrivateAssets="All" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.70.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\student.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

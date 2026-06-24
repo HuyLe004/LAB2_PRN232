@@ -1,11 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "Qw1LRkVymAo=",
+  "dgSpecHash": "IJbqE067iq8=",
   "success": true,
   "projectFilePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\google.protobuf\\4.0.0-rc2\\google.protobuf.4.0.0-rc2.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.aspnetcore\\2.71.0\\grpc.aspnetcore.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.aspnetcore.server\\2.71.0\\grpc.aspnetcore.server.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.71.0\\grpc.aspnetcore.server.clientfactory.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.core.api\\2.71.0\\grpc.core.api.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.net.client\\2.71.0\\grpc.net.client.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.net.clientfactory\\2.71.0\\grpc.net.clientfactory.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.net.common\\2.71.0\\grpc.net.common.2.71.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\grpc.tools\\2.71.0\\grpc.tools.2.71.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.6\\microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
@@ -34,6 +43,7 @@
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.0\\microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.0\\microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.dependencymodel\\9.0.0\\microsoft.extensions.dependencymodel.9.0.0.nupkg.sha512",
+    "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.http\\6.0.0\\microsoft.extensions.http.6.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.logging\\9.0.0\\microsoft.extensions.logging.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.0\\microsoft.extensions.logging.abstractions.9.0.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\microsoft.extensions.options\\9.0.0\\microsoft.extensions.options.9.0.0.nupkg.sha512",
@@ -91,5 +101,42 @@
     "C:\\Users\\ACER\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "CourseService depends on Grpc.AspNetCore (>= 2.70.1) but Grpc.AspNetCore 2.70.1 was not found. Grpc.AspNetCore 2.71.0 was resolved instead.",
+      "projectPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "libraryId": "Grpc.AspNetCore",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "CourseService depends on Grpc.Net.Client (>= 2.70.1) but Grpc.Net.Client 2.70.1 was not found. Grpc.Net.Client 2.71.0 was resolved instead.",
+      "projectPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "libraryId": "Grpc.Net.Client",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "CourseService depends on Grpc.Tools (>= 2.70.1) but Grpc.Tools 2.70.1 was not found. Grpc.Tools 2.71.0 was resolved instead.",
+      "projectPath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\PRN232\\Lab_PRN232\\Lab2_PRN232\\LAB2_PRN232\\PRN232_Lab3_Microservices\\CourseService\\CourseService.csproj",
+      "libraryId": "Grpc.Tools",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

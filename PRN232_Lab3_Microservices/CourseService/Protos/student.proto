@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Lms.Shared.Protos";
+
+package student.v1;
+
+service StudentService {
+  rpc GetStudentById (GetStudentByIdRequest) returns (GetStudentByIdResponse);
+}
+
+message GetStudentByIdRequest {
+  int32 studentId = 1;
+}
+
+message GetStudentByIdResponse {
+  int32 studentId = 1;
+  string fullName = 2;
+  string email = 3;
+  string phoneNumber = 4;
+  string studentCode = 5;
+}
+
