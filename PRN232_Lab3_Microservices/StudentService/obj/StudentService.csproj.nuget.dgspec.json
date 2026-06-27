@@ -52,16 +52,20 @@
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
-              "version": "[4.0.0-rc2, )"
+              "version": "[3.29.3, )"
             },
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.70.1, )"
+              "version": "[2.62.0, )"
             },
             "Grpc.Tools": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.70.1, )"
+              "version": "[2.62.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",

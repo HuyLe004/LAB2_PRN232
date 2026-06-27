@@ -1,0 +1,116 @@
+services:
+  identity-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: identity-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=12345
+    ports:
+      - "14330:1433"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+      - identity_db_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "12345", "-Q", "SELECT 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  student-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: student-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=12345
+    ports:
+      - "14331:1433"
+    volumes:
+      - student_db_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "12345", "-Q", "SELECT 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  course-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: course-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=12345
+    ports:
+      - "14332:1433"
+    volumes:
+      - course_db_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "12345", "-Q", "SELECT 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  identity-service:
+    build:
+      context: ./IdentityService
+      dockerfile: Dockerfile
+    container_name: identity-service
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=identity-db;Database=LMS_IdentityDb;User Id=SA;Password=12345;Encrypt=false;TrustServerCertificate=true;
+    depends_on:
+      identity-db:
+        condition: service_healthy
+    ports:
+      - "5001:8080"
+
+  student-service:
+    build:
+      context: ./StudentService
+      dockerfile: Dockerfile
+    container_name: student-service
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=student-db;Database=LMS_StudentDb;User Id=SA;Password=12345;Encrypt=false;TrustServerCertificate=true;
+    depends_on:
+      student-db:
+        condition: service_healthy
+    ports:
+      - "5002:8080"
+
+  course-service:
+    build:
+      context: ./CourseService
+      dockerfile: Dockerfile
+    container_name: course-service
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=course-db;Database=LMS_CourseDb;User Id=SA;Password=12345;Encrypt=false;TrustServerCertificate=true;
+    depends_on:
+      course-db:
+        condition: service_healthy
+    ports:
+      - "5003:8080"
+
+  api-gateway:
+    build:
+      context: ./ApiGateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      # Update gateway routes (destinations) to use service DNS names (not localhost)
+      - ReverseProxy__Clusters__identity__Destinations__identity1__Address=http://identity-service:8080
+      - ReverseProxy__Clusters__students__Destinations__students1__Address=http://student-service:8080
+      - ReverseProxy__Clusters__courses__Destinations__courses1__Address=http://course-service:8080
+    depends_on:
+      - identity-service
+      - student-service
+      - course-service
+    ports:
+      - "5000:8080"
+
+volumes:
+  identity_db_data:
+  student_db_data:
+  course_db_data:
+

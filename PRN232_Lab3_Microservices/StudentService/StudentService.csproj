@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -16,9 +16,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
 
     <!-- gRPC -->
-    <PackageReference Include="Grpc.AspNetCore" Version="2.70.1" />
-    <PackageReference Include="Google.Protobuf" Version="4.0.0-rc2" />
-    <PackageReference Include="Grpc.Tools" Version="2.70.1" PrivateAssets="All" />
+	  <PackageReference Include="Grpc.AspNetCore" Version="2.62.0" />
+	  <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+	  <PackageReference Include="Grpc.Tools" Version="2.62.0" PrivateAssets="All" />
+
+    <!-- Auth (JWT) -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+
   </ItemGroup>
 
   <ItemGroup>

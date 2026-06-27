@@ -7,13 +7,16 @@ namespace CourseService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Authorization.Authorize] // protected APIs (require JWT)
     public class CoursesController : ControllerBase
     {
         private readonly CourseDbContext _context;
+        private readonly CourseService.Grpc.StudentGrpcClient _studentGrpcClient;
 
-        public CoursesController(CourseDbContext context)
+        public CoursesController(CourseDbContext context, CourseService.Grpc.StudentGrpcClient studentGrpcClient)
         {
             _context = context;
+            _studentGrpcClient = studentGrpcClient;
         }
 
         // 1. API Xem danh sách môn học kèm học kỳ
@@ -27,6 +30,7 @@ namespace CourseService.Controllers
 
         // 2. API Tạo môn học mới
         [HttpPost]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateCourse([FromBody] Course course)
         {
             _context.Courses.Add(course);
@@ -45,27 +49,28 @@ namespace CourseService.Controllers
             if (enrollment == null)
                 return BadRequest("Enrollment is required.");
 
+            if (enrollment.StudentId <= 0)
+                return BadRequest("Invalid StudentId.");
+
             // gRPC call to StudentService
             // Student information is required only for demo purposes of Lab3 requirement 2.
             // Must fetch student info via gRPC before saving enrollment (per Lab3 requirement).
             try
             {
-                // For simplicity, use synchronous client resolution via DI
-                // (We will request client from HttpContext RequestServices)
-                var client = HttpContext.RequestServices.GetService<CourseService.Grpc.StudentGrpcClient>();
-                if (client != null)
+                // Student validation must be done via gRPC (service-to-service flow)
+                // Use DI-injected client to keep the implementation stable and testable.
+                var student = await _studentGrpcClient.GetStudentByIdAsync(enrollment.StudentId);
+                if (student == null || student.StudentId == 0)
                 {
-                    var student = await client.GetStudentByIdAsync(enrollment.StudentId);
-                    // Optionally attach some info to response (not persisted to course DB)
-                    if (student != null && student.StudentId != 0)
-                    {
-                        studentFullName = student.FullName;
-                    }
+                    return NotFound($"Student with id {enrollment.StudentId} not found.");
                 }
+
+                studentFullName = student.FullName ?? "";
             }
             catch
             {
-                // ignore
+                // gRPC failure -> treat as unable to validate student
+                return StatusCode(502, "Unable to validate student via gRPC.");
             }
 
             enrollment.EnrollDate = DateTime.Now;

@@ -40,6 +40,19 @@ var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Ensure gateway forwards Authorization header so downstream services can enforce [Authorize]
+app.Use(async (context, next) =>
+{
+    // If client provided Authorization, YARP will generally forward it,
+    // but this guarantees it stays on the request.
+    // No-op unless header exists.
+    if (context.Request.Headers.TryGetValue("Authorization", out var auth) && !string.IsNullOrWhiteSpace(auth))
+    {
+        context.Request.Headers["Authorization"] = auth;
+    }
+    await next();
+});
+
 // Forward everything under /api/* to the reverse proxy.
 // JWT validation happens in this gateway via JwtBearer middleware.
 app.MapReverseProxy();

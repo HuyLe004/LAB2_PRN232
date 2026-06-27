@@ -7,6 +7,7 @@ namespace StudentService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Microsoft.AspNetCore.Authorization.Authorize] // protected APIs (require JWT)
     public class StudentsController : ControllerBase
     {
         private readonly StudentDbContext _context;
@@ -34,6 +35,7 @@ namespace StudentService.Controllers
 
         // 3. API Thêm mới sinh viên
         [HttpPost]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromBody] Student student)
         {
             _context.Students.Add(student);

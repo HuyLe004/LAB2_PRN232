@@ -8,5 +8,7 @@ namespace IdentityService.Data
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
     }
 }

@@ -25,6 +25,9 @@ namespace IdentityService.Controllers
             _context = context;
         }
 
+        // NOTE: Refresh endpoint is implemented in AuthRefreshController to match required route.
+
+
         // 1. API Đăng ký tài khoản (Register)
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] User user)
@@ -47,16 +50,32 @@ namespace IdentityService.Controllers
             if (user == null)
                 return Unauthorized("Sai tài khoản hoặc mật khẩu.");
 
-            var token = CreateJwtToken(user);
+            var accessToken = CreateJwtToken(user);
+            var refreshTokenEntity = new RefreshToken
+            {
+                UserId = user.UserId,
+                Token = GenerateRefreshToken(),
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.UtcNow.AddDays(7),
+                Revoked = false
+            };
+
+            _context.RefreshTokens.Add(refreshTokenEntity);
+            await _context.SaveChangesAsync();
 
             return Ok(new
             {
                 message = "Đăng nhập thành công!",
                 username = user.Username,
                 role = user.Role,
-                token
+                accessToken,
+                refreshToken = refreshTokenEntity.Token,
+                expiresIn = 60 * 60
             });
         }
+
+        
+
 
         private static string CreateJwtToken(User user)
         {
@@ -81,5 +100,16 @@ namespace IdentityService.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        private static string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[64];
+            using (var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }
+        }
+
     }
 }
