@@ -8,9 +8,10 @@ namespace PRN232.LMS.API.Controllers
     /// 🔴 YÊU CẦU 9: Authentication API Controller
     /// POST /api/auth/login - Login endpoint
     /// POST /api/auth/refresh-token - Refresh token endpoint
+    /// LAB2 Requirement #9: Authentication & Authorization
     /// </summary>
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
@@ -25,9 +26,10 @@ namespace PRN232.LMS.API.Controllers
         /// <summary>
         /// Login endpoint - returns access token and refresh token
         /// Required endpoint: POST /api/auth/login
+        /// LAB2 Requirement #9: Authentication API
         /// </summary>
         /// <param name="request">Login credentials (username, password)</param>
-        /// <returns>JWT tokens with expiration time</returns>
+        /// <returns>JWT tokens with expiration time (accessToken, refreshToken, expiresIn)</returns>
         [HttpPost("login")]
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
@@ -56,9 +58,10 @@ namespace PRN232.LMS.API.Controllers
         /// <summary>
         /// Refresh token endpoint - returns new access token
         /// Required endpoint: POST /api/auth/refresh-token
+        /// LAB2 Requirement #9: Refresh Token Flow
         /// </summary>
         /// <param name="request">Refresh token</param>
-        /// <returns>New access token</returns>
+        /// <returns>New access token and refresh token</returns>
         [HttpPost("refresh-token")]
         [Produces("application/json", "application/xml")]
         public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
