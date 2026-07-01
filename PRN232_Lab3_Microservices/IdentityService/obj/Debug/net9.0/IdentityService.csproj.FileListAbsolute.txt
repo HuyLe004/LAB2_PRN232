@@ -309,7 +309,6 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityS
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\obj\Debug\net9.0\IdentityService.pdb
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\obj\Debug\net9.0\IdentityService.genruntimeconfig.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\obj\Debug\net9.0\ref\IdentityService.dll
-D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\obj\Debug\net9.0\swae.build.ex.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\Serilog.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\Serilog.AspNetCore.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
@@ -320,3 +319,4 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityS
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\Serilog.Sinks.File.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\bin\Debug\net9.0\IdentityService.exe
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\IdentityService\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

@@ -38,7 +38,6 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGatewa
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\obj\Debug\net9.0\ApiGateway.pdb
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\obj\Debug\net9.0\ApiGateway.genruntimeconfig.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\obj\Debug\net9.0\ref\ApiGateway.dll
-D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\obj\Debug\net9.0\swae.build.ex.cache
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\Serilog.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\Serilog.AspNetCore.dll
@@ -50,3 +49,4 @@ D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGatewa
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\Serilog.Sinks.File.dll
 D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\bin\Debug\net9.0\ApiGateway.exe
+D:\PRN232\Lab_PRN232\Lab2_PRN232\LAB2_PRN232\PRN232_Lab3_Microservices\ApiGateway\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
