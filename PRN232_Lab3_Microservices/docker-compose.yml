@@ -85,9 +85,12 @@ services:
     environment:
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__DefaultConnection=Server=course-db;Database=LMS_CourseDb;User Id=SA;Password=12345;Encrypt=false;TrustServerCertificate=true;
+      - StudentService__GrpcBaseUrl=http://student-service:8080
     depends_on:
       course-db:
         condition: service_healthy
+      student-service:
+        condition: service_started
     ports:
       - "5003:8080"
 

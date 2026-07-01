@@ -9,6 +9,8 @@ public class StudentGrpcClient
 
     public StudentGrpcClient(IConfiguration configuration)
     {
+        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
         // e.g. StudentService:GrpcBaseUrl = "https://localhost:5002" or "http://localhost:5002"
         var baseUrl = configuration["StudentService:GrpcBaseUrl"] ?? "http://localhost:5002";
         var channel = GrpcChannel.ForAddress(baseUrl);

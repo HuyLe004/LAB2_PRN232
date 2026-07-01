@@ -1,5 +1,6 @@
 ﻿using IdentityService.Data;
 using IdentityService.Entities;
+using IdentityService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -42,10 +43,12 @@ namespace IdentityService.Controllers
 
         // 2. API Đăng nhập (Login) - generate JWT thật
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] User loginInfo)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginInfo)
         {
+            var password = loginInfo.PasswordHash ?? loginInfo.Password;
+
             var user = await _context.Users.FirstOrDefaultAsync(
-                u => u.Username == loginInfo.Username && u.PasswordHash == loginInfo.PasswordHash);
+                u => u.Username == loginInfo.Username && u.PasswordHash == password);
 
             if (user == null)
                 return Unauthorized("Sai tài khoản hoặc mật khẩu.");

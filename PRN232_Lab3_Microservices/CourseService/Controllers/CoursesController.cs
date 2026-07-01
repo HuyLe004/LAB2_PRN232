@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CourseService.Data;
 using CourseService.Entities;
+using CourseService.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CourseService.Controllers
@@ -23,7 +24,17 @@ namespace CourseService.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCourses()
         {
-            var courses = await _context.Courses.Include(c => c.Semester).ToListAsync();
+            var courses = await _context.Courses
+                .Include(c => c.Semester)
+                .Select(c => new CourseResponse
+                {
+                    CourseId = c.CourseId,
+                    CourseName = c.CourseName,
+                    SemesterId = c.SemesterId,
+                    SemesterName = c.Semester.SemesterName
+                })
+                .ToListAsync();
+
             return Ok(courses);
         }
 
@@ -41,16 +52,25 @@ namespace CourseService.Controllers
         // 3. API Đăng ký học (Enrollment) - Chuẩn Microservices chỉ lưu StudentId
         // Requirement 2 (gRPC): CourseService retrieve student info from StudentService via gRPC before saving.
         [HttpPost("enroll")]
-        public async Task<IActionResult> EnrollStudent([FromBody] Enrollment enrollment)
+        public async Task<IActionResult> EnrollStudent([FromBody] EnrollRequest request)
         {
             var studentFullName = "";
 
-            // Basic validation
-            if (enrollment == null)
+            if (request == null)
                 return BadRequest("Enrollment is required.");
 
-            if (enrollment.StudentId <= 0)
+            if (request.StudentId <= 0)
                 return BadRequest("Invalid StudentId.");
+
+            if (request.CourseId <= 0)
+                return BadRequest("Invalid CourseId.");
+
+            var enrollment = new Enrollment
+            {
+                StudentId = request.StudentId,
+                CourseId = request.CourseId,
+                Status = string.IsNullOrWhiteSpace(request.Status) ? "Active" : request.Status
+            };
 
             // gRPC call to StudentService
             // Student information is required only for demo purposes of Lab3 requirement 2.
@@ -74,10 +94,6 @@ namespace CourseService.Controllers
             }
 
             enrollment.EnrollDate = DateTime.Now;
-            if (string.IsNullOrEmpty(enrollment.Status))
-            {
-                enrollment.Status = "Active";
-            }
 
             _context.Enrollments.Add(enrollment);
             await _context.SaveChangesAsync();
